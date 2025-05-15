@@ -9,11 +9,11 @@ import org.whs.dev2.dto.UserRequestDto;
 import org.whs.dev2.service.UserService;
 
 @Controller
-public class PageController {
+public class UserPageController {
 
     private final UserService userService;
 
-    public PageController(UserService userService) {
+    public UserPageController(UserService userService) {
         this.userService = userService;
     }
 

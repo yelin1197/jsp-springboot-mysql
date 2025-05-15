@@ -3,14 +3,14 @@ package org.whs.dev2.entity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import org.whs.dev2.entity.common.BaseEntity;
 
-import java.sql.Timestamp;
 
 @Entity
 @Getter
 @Setter
 @Table(name = "users")
-public class User {
+public class User extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,7 +23,4 @@ public class User {
     private String password;
 
     private String email;
-
-    @Column(name = "created_at", insertable = false, updatable = false)
-    private Timestamp createdAt;
 }

@@ -13,7 +13,7 @@ import java.time.LocalDateTime;
 
 @Controller
 @RequiredArgsConstructor
-public class PostController {
+public class PostPageController {
 
     private final PostService postService;
 
@@ -37,12 +37,7 @@ public class PostController {
         Post post = new Post();
         post.setTitle(title);
         post.setContent(content);
-        post.setAuthor(author);
-        post.setPassword(password);
-        post.setCreatedAt(LocalDateTime.now());
-        post.setModifiedAt(LocalDateTime.now());
 
-        postService.save(post);
 
         return "redirect:/posts";
     }

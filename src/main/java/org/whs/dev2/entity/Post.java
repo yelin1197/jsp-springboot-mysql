@@ -3,14 +3,14 @@ package org.whs.dev2.entity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import org.whs.dev2.entity.common.BaseEntity;
 
-import java.time.LocalDateTime;
 
 @Entity
 @Getter
 @Setter
 @Table(name = "posts")
-public class Post {
+public class Post extends BaseEntity {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -21,15 +21,7 @@ public class Post {
     @Column(nullable = false, columnDefinition = "TEXT")
     private String content;
 
-    @Column(nullable = false)
-    private String author;
-
-    @Column(nullable = false)
-    private String password;
-
-    @Column(name = "created_at", updatable = false)
-    private LocalDateTime createdAt = LocalDateTime.now();
-
-    @Column(name = "modified_at")
-    private LocalDateTime modifiedAt = LocalDateTime.now();
+    @ManyToOne
+    @JoinColumn(name = "user_id", nullable = false)
+    private User user; //user_id와 게시글 id가 같을 때에만 수정 가능하도록 할 것임
 }
