@@ -24,4 +24,7 @@ public class Post extends BaseEntity {
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
     private User user; //user_id와 게시글 id가 같을 때에만 수정 가능하도록 할 것임
+
+    @Column(name = "file_path")
+    private String filePath;
 }

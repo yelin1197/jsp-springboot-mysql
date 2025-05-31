@@ -18,5 +18,6 @@
     <label>비밀번호: <input type="password" name="password" required></label><br>
     <button type="submit">로그인</button>
 </form>
+<p><a href="/register">회원가입 하러가기</a></p>
 </body>
 </html>

@@ -1,13 +1,20 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<!doctype html>
-<html lang="ko">
+<%@ page contentType="text/html;charset=UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<!DOCTYPE html>
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
-  <title>Test Page</title>
+  <title>홈</title>
 </head>
 <body>
-<h1>JSP 테스트 페이지입니다.</h1>
-<p>이 페이지는 JSTL 설정 후 JSP가 잘 작동하는지 확인하기 위한 테스트용입니다.</p>
+<h1>메인 페이지</h1>
+
+<p>아래에서 원하는 페이지로 이동하세요:</p>
+
+<ul>
+  <li><a href="/login">로그인</a></li>
+  <li><a href="/register">회원가입</a></li>
+  <li><a href="/posts">게시글 목록</a></li>
+</ul>
+
 </body>
 </html>

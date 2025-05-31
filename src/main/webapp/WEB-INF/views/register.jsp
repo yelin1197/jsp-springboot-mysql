@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,6 +7,7 @@
 </head>
 <body>
 <h2>회원가입 페이지</h2>
+
 <!-- 에러 메시지 출력 -->
 <c:if test="${not empty error}">
     <p style="color: red">${error}</p>
@@ -17,5 +19,6 @@
     <label>이메일: <input type="email" name="email"></label><br>
     <button type="submit">회원가입</button>
 </form>
+<p><a href="/login">로그인 하러가기</a></p>
 </body>
 </html>

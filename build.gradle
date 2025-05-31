@@ -56,6 +56,14 @@ tasks.named('war') {
     enabled = true
 }
 
+
 tasks.named('test') {
     useJUnitPlatform()
+}
+war {
+    manifest {
+        attributes(
+                'Main-Class': 'org.whs.dev2.Dev2Application'
+        )
+    }
 }
