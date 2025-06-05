@@ -8,7 +8,7 @@ services:
   web-server:
     build:
       context: ./data/web
-      dockerfile: ../../docker/web/Dockerfile
+      dockerfile: Dockerfile
     ports:
       - "8080:8080"
     networks:
@@ -18,11 +18,13 @@ services:
       - api-server
     volumes:
       - uploads:/var/www/html/uploads
+    environment:
+      - API_SERVER_URL=http://api-server:8081
 
   api-server:
     build:
       context: ./data/api
-      dockerfile: ../../docker/api/Dockerfile
+      dockerfile: Dockerfile
     ports:
       - "8081:8081"
     networks:
@@ -39,15 +41,14 @@ services:
   db-server:
     build:
       context: ./data/db
-      dockerfile: ../../docker/db/Dockerfile
+      dockerfile: Dockerfile
     ports:
       - "1521:1521"
     networks:
       - int-net
     volumes:
-      - ./data/db:/docker-entrypoint-initdb.d
-      - db-data:/var/lib/oracle
+      - oracle_data:/u01/app/oracle
 
 volumes:
-  db-data:
+  oracle_data:
   uploads: 

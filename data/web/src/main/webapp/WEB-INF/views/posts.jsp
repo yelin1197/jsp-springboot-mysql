@@ -13,7 +13,7 @@
 <div class="container container-posts">
     <div class="flex-row justify-between align-center mb-1-5">
         <h1>게시판</h1>
-        <a href="/post/new" class="main-btn">새 글 작성</a>
+        <a href="/board/newPost" class="main-btn">새 글 작성</a>
     </div>
 
     <div class="card card-posts mb-2">
