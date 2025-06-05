@@ -1,10 +1,21 @@
-.hero-section {
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
     background: #f8f9fa;
+    min-height: 100vh;
+    color: #333;
+}
+
+.main-content {
+    padding-top: 80px;
     min-height: calc(100vh - 80px);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 2rem;
+}
+
+.hero-section {
+    text-align: center;
+    padding: 6rem 2rem;
+    background: #fff;
     position: relative;
     overflow: hidden;
 }
@@ -16,137 +27,150 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: url('/images/circuit-pattern.png') repeat;
-    opacity: 0.02;
-    animation: backgroundMove 30s linear infinite;
-}
-
-.hero-content {
-    text-align: center;
-    color: #2c3e50;
-    z-index: 1;
-    max-width: 800px;
-    padding: 3rem;
-    background: #ffffff;
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    background: linear-gradient(135deg, rgba(26, 42, 108, 0.05) 0%, rgba(26, 42, 108, 0.02) 100%);
+    z-index: 0;
 }
 
 .hero-title {
-    font-size: 3rem;
+    font-size: 3.5rem;
+    color: #1a2a6c;
+    margin: 0 0 1.5rem;
     font-weight: 700;
-    margin-bottom: 1.5rem;
-    color: #2c3e50;
+    letter-spacing: -0.02em;
+    position: relative;
+    z-index: 1;
 }
 
 .hero-subtitle {
-    font-size: 1.2rem;
-    margin-bottom: 2.5rem;
-    line-height: 1.6;
+    font-size: 1.25rem;
     color: #666;
+    margin: 0 0 3rem;
+    font-weight: 500;
+    position: relative;
+    z-index: 1;
 }
 
-.button-container {
+.cta-buttons {
     display: flex;
-    gap: 1rem;
+    gap: 1.2rem;
     justify-content: center;
     flex-wrap: wrap;
+    position: relative;
+    z-index: 1;
 }
 
-.main-button {
-    background: #ffffff;
-    color: #2c3e50;
-    padding: 0.8rem 1.5rem;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: 500;
-    font-size: 1rem;
-    transition: all 0.3s ease;
-    border: 1px solid #e9ecef;
-    display: flex;
+.cta-button {
+    display: inline-flex;
     align-items: center;
-    gap: 0.5rem;
-}
-
-.main-button:hover {
-    background: #f8f9fa;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-}
-
-.main-button::before {
+    gap: 0.6rem;
+    padding: 1rem 2rem;
+    border-radius: 12px;
     font-size: 1.1rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    min-width: 160px;
+    justify-content: center;
 }
 
-.login-btn::before {
-    content: "🔑";
+.cta-button.primary {
+    background: #1a2a6c;
+    color: white;
+    box-shadow: 0 4px 15px rgba(26, 42, 108, 0.2);
 }
 
-.register-btn::before {
-    content: "👤";
+.cta-button.primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(26, 42, 108, 0.3);
+    background: #2a3a7c;
 }
 
-.board-btn::before {
-    content: "📝";
+.cta-button.secondary {
+    background: white;
+    color: #1a2a6c;
+    border: 2px solid #1a2a6c;
 }
 
-.robot-animation {
-    position: absolute;
-    width: 150px;
-    height: 150px;
-    background: url('/images/robot.png') no-repeat center center;
-    background-size: contain;
-    opacity: 0.03;
-    animation: float 8s ease-in-out infinite;
+.cta-button.secondary:hover {
+    background: #1a2a6c;
+    color: white;
+    transform: translateY(-2px);
 }
 
-.robot-1 {
-    top: 15%;
-    left: 15%;
+.button-icon {
+    font-size: 1.3rem;
 }
 
-.robot-2 {
-    bottom: 15%;
-    right: 15%;
-    animation-delay: -4s;
+.features-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    background: #fff;
 }
 
-@keyframes float {
-    0% {
-        transform: translateY(0) rotate(0deg);
-    }
-    50% {
-        transform: translateY(-15px) rotate(3deg);
-    }
-    100% {
-        transform: translateY(0) rotate(0deg);
-    }
+.feature-card {
+    background: #fff;
+    padding: 2.5rem 2rem;
+    border-radius: 16px;
+    text-align: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    border: 1px solid #eee;
 }
 
-@keyframes backgroundMove {
-    0% {
-        background-position: 0 0;
-    }
-    100% {
-        background-position: 100% 100%;
-    }
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    border-color: #1a2a6c;
+}
+
+.feature-icon {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    color: #1a2a6c;
+}
+
+.feature-card h3 {
+    color: #1a2a6c;
+    margin: 0 0 1rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.feature-card p {
+    color: #666;
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.6;
 }
 
 @media (max-width: 768px) {
+    .hero-section {
+        padding: 4rem 1.5rem;
+    }
+
     .hero-title {
-        font-size: 2rem;
+        font-size: 2.5rem;
     }
+    
     .hero-subtitle {
-        font-size: 1rem;
+        font-size: 1.1rem;
+        margin-bottom: 2rem;
     }
-    .button-container {
-        flex-direction: column;
-    }
-    .main-button {
+    
+    .cta-button {
         width: 100%;
-        justify-content: center;
+        padding: 0.9rem 1.5rem;
     }
-    .hero-content {
-        padding: 2rem;
+    
+    .features-section {
+        padding: 2rem 1rem;
+    }
+
+    .feature-card {
+        padding: 2rem 1.5rem;
     }
 } 

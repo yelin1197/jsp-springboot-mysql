@@ -38,12 +38,17 @@ public class PostPageController {
     }
 
     @PostMapping("/newPost")
-    public String createPost(@ModelAttribute PostRequestDto postRequestDto, HttpSession session) {
-        User user = (User) session.getAttribute("user");
-        if (user == null) {
+    public String createPost(@ModelAttribute PostRequestDto dto, HttpSession session) {
+        User loginUser = (User) session.getAttribute("user");
+        if (loginUser == null) {
             return "redirect:/login";
         }
-        postService.createPost(postRequestDto, user);
+
+        // author 값을 세팅 (폼에서 전달되지 않으면 수동으로 넣기)
+        dto.setAuthor(loginUser.getUsername()); // 또는 getName()
+
+        postService.createPost(dto, loginUser);
         return "redirect:/board/posts";
     }
+
 }

@@ -27,7 +27,7 @@ public class Post extends BaseEntity {
     @Column(nullable = false)
     private String password;
 
-    @Column(nullable = false)
+    @Column(nullable = true)
     private String fileName;  // 첨부 파일 이름
 
     @ManyToOne(fetch = FetchType.LAZY)
