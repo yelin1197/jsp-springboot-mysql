@@ -1,20 +1,49 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
+<%@ include file="header.jsp" %>
 <!DOCTYPE html>
-<html>
+<html lang="ko">
 <head>
-    <title>게시글 작성</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
+    <title>게시글 작성 - 화햇 로보틱스</title>
+    <link rel="stylesheet" href="/css/main.css">
 </head>
 <body>
-<h2>✏️ 게시글 작성</h2>
+<div class="container container-form">
+    <div class="card card-form">
+        <h2 class="text-center">✏️ 게시글 작성</h2>
+        <form method="post" action="/post" enctype="multipart/form-data" class="form-content">
+            <div class="form-group">
+                <label for="title">제목</label>
+                <input type="text" id="title" name="title" required class="input-full">
+            </div>
 
-<form method="post" action="/post">
-    <label>제목: <input type="text" name="title" required></label><br>
-    <label>내용: <textarea name="content" required></textarea></label><br>
-    <label>작성자: <input type="text" name="author" required></label><br>
-    <label>비밀번호: <input type="password" name="password" required></label><br>
-    <button type="submit">등록</button>
-</form>
+            <div class="form-group">
+                <label for="content">내용</label>
+                <textarea id="content" name="content" required class="input-full textarea-content"></textarea>
+            </div>
 
-<p><a href="/posts">← 목록으로</a></p>
+            <div class="form-group">
+                <label for="author">작성자</label>
+                <input type="text" id="author" name="author" required class="input-full">
+            </div>
+
+            <div class="form-group">
+                <label for="password">비밀번호</label>
+                <input type="password" id="password" name="password" required class="input-full">
+            </div>
+
+            <div class="form-group">
+                <label for="file">파일 첨부</label>
+                <input type="file" id="file" name="file" class="input-full">
+            </div>
+
+            <div class="form-actions">
+                <button type="submit" class="main-btn btn-full">등록하기</button>
+                <a href="/posts" class="sub-btn btn-full">목록으로</a>
+            </div>
+        </form>
+    </div>
+</div>
 </body>
 </html>
