@@ -37,6 +37,31 @@ public class PostPageController {
         return "postForm";
     }
 
+    @GetMapping("/posts/{id}")
+    public String showPostDetail(@PathVariable Long id, Model model, HttpSession session) {
+        Post post = postService.getPost(id);
+        if (post == null) {
+            // Post not found, handle error or redirect
+            return "redirect:/board/posts"; // Redirect to list page for now
+        }
+
+        User author = post.getUser(); // Assuming Post entity has a getUser() method
+        model.addAttribute("board", post);
+        model.addAttribute("username", author != null ? author.getUsername() : "Unknown"); // Add author's username
+
+        // Assuming attached files are part of the Post entity or related
+        // model.addAttribute("attachedFiles", post.getAttachedFiles()); // Example if files are linked to Post
+
+        // Add login user ID for conditional rendering (edit/delete buttons)
+        User loginUser = (User) session.getAttribute("user");
+        if (loginUser != null) {
+            model.addAttribute("loginUserId", loginUser.getId());
+            // model.addAttribute("loginUserRole", loginUser.getRole()); // If roles are used
+        }
+
+        return "postDetail";
+    }
+
     @PostMapping("/newPost")
     public String createPost(@ModelAttribute PostRequestDto dto, HttpSession session) {
         User loginUser = (User) session.getAttribute("user");

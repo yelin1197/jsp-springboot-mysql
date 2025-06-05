@@ -32,7 +32,6 @@ public class PostService {
         post.setTitle(dto.getTitle());
         post.setContent(dto.getContent());
         post.setAuthor(dto.getAuthor());
-        post.setPassword(dto.getPassword());
         post.setUser(user);
         return postRepository.save(post);
     }
@@ -46,7 +45,6 @@ public class PostService {
         post.setTitle(dto.getTitle());
         post.setContent(dto.getContent());
         post.setAuthor(dto.getAuthor());
-        post.setPassword(dto.getPassword());
     }
 
     @Transactional

@@ -24,9 +24,6 @@ public class Post extends BaseEntity {
     @Column(nullable = false)
     private String author;
 
-    @Column(nullable = false)
-    private String password;
-
     @Column(nullable = true)
     private String fileName;  // 첨부 파일 이름
 
@@ -36,4 +33,8 @@ public class Post extends BaseEntity {
 
     @Column(nullable = false)
     private LocalDateTime createdAt = LocalDateTime.now();
+
+    // 공지사항 여부 필드 추가
+    @Column(nullable = false)
+    private boolean notice = false;
 }

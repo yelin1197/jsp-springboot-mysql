@@ -31,14 +31,18 @@
                     <label for="title" class="form-label">제목</label>
                     <input type="text" id="title" name="title" class="form-input" required>
                 </div>
+
                 <div class="form-group">
                     <label for="content" class="form-label">내용</label>
                     <textarea id="content" name="content" class="form-input" required></textarea>
                 </div>
+
                 <input type="hidden" id="userId" name="userId" value="${loginUserId}" />
+
                 <div class="form-group">
                     <div class="form-label">작성자: <b>${loginUsername}</b></div>
                 </div>
+
                 <button type="submit" class="form-button">등록</button>
             </form>
         </div>
